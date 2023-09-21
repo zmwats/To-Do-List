@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="/static/todo.css">
+    <style>    
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #todo-list {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        input[type="text"] {
+            flex: 1;
+            padding: 5px;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div id="todo-list">
+        <h1>To-Do List</h1>
+        <form id="todo-form">
+            <input type="text" id="task" placeholder="Add a new task" required>
+            <button type="submit">Add</button>
+        </form>
+        <ul id="tasks">
+            <!-- Loop through tasks and display them with a delete button -->
+            {% for task in tasks %}
+            <li>
+                <input type="checkbox" class="check-box">
+                <span class="task-text">{{ task }}</span>
+                <button class="delete-button">Delete</button>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <script src="/static/todo.js"></script>
+</body>
+</html>
+
+
